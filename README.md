@@ -55,6 +55,3 @@ We encourage developers and contributors to help us improve SkipMaster. If you'r
 
 
 ---
-
-Enjoy your ad-free and intro-free browsing experience with SkipMaster! If you have any questions or encounter issues, please feel free to reach out. Thank you for using SkipMaster.
-
