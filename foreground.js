@@ -1,22 +1,16 @@
 var element = document.getElementsByClassName("Skip-IntroText")[0];
-if (element) {
-  element.click();
-}
-var skippedValue = 0;
-var startingValue = document.getElementsByClassName("min-w-[2em]")[0];
-var endingValue = document.getElementsByClassName("min-w-[2em] mr-[12px]")[0];
+var video = document.getElementsByTagName("video")[0];
+var timeOut;
+var flag = 0;
+function CheckDOMChange() {
+  moviePlayer = document.getElementsByClassName("Skip-IntroText")[0];
 
-var observer = new MutationObserver((mutations) => {
-  for (let mutation of mutations) {
-    // for (let addedNode of mutation.attributeName) {
-    //   console.log("mutation", addedNode);
-    if (mutation.target.id === "theoplayer-container") {
-      if (startingValue < skippedValue) {
-        element.click();
-        skippedValue = startingValue;
-      }
-    }
-    // }
+  if (moviePlayer !== undefined && flag < 2) {
+    console.log("skipper");
+    moviePlayer.click();
+    clearInterval(timeOut);
+    flag++;
   }
-});
-observer.observe(document, { childList: true, subtree: true });
+}
+
+timeOut = setInterval(CheckDOMChange, 1000);

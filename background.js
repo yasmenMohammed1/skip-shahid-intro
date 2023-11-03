@@ -1,13 +1,12 @@
 const regex =
   /(?:youtube\.com\/watch\?v=|youtu\.be\/|youtube\.com\/embed\/|youtube\.com\/v\/|youtube\.com\/user\/\S+\/|youtube\.com\/attribution_link\?a=\S+&u=\S+&i=\S+|youtube\.com\/playlist\?list=)([a-zA-Z0-9_-]{11})/;
-let activeTab;
-
+var activeTab;
 chrome.tabs.onUpdated.addListener(async function (tabId, changeInfo, tab) {
   let introTime;
+  activeTab = tabId;
   await chrome.storage.local.get(["introTime"]).then((result) => {
     introTime = result.introTime;
   });
-
   if (changeInfo.status === "complete") {
     if (regex.test(tab.url) && introTime) {
       chrome.scripting.executeScript(
@@ -31,7 +30,6 @@ chrome.tabs.onUpdated.addListener(async function (tabId, changeInfo, tab) {
     }
   }
 });
-
 chrome.tabs.onActivated.addListener(function (activeInfo) {
   // how to fetch tab url using activeInfo.tabid
   activeTab = activeInfo.tabId;

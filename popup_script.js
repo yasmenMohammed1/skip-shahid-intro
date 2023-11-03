@@ -4,8 +4,6 @@ let introEstematedTime =
 
 let checkInput = window.document.getElementsByClassName("checkStatus")[0];
 
-// Append the input element to the document or a specific container
-
 checkInput.addEventListener("click", () => {
   let body = window.document.getElementsByTagName("body")[0];
   let youtubeSection =
