@@ -1,0 +1,165 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Document</title>
+  <style>
+    body {
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      margin: 12px;
+      align-items: center;
+      border-radius: 25px;
+      background: #73ad21;
+      width: 200px;
+      height: 200px;
+      text-align: center;
+      background: linear-gradient(5deg, #00d356, #00ca9b, #0098ff);
+    }
+  input::-webkit-outer-spin-button,
+      input::-webkit-inner-spin-button {
+        display: none;
+      }
+    .text {
+      margin-bottom: 3px;
+      color: white;
+      opacity: 50%;
+      font-size: x-small;
+      font-weight: 800;
+    }
+
+    .header {
+      display: flex;
+      gap: 3px;
+      align-items: center;
+      justify-content: space-between;
+      margin: 12px;
+    }
+
+    .youtube-input {
+      display: none;
+    }
+
+    .skipper {
+      margin-top: 12px;
+      padding: 3px;
+      background-color: black;
+      border-radius: 34px;
+      text-align: center;
+      color: #ccc;
+      font-size: small;
+      font-weight: 500;
+      border: 1 white solid;
+      width: 100px;
+      height: 30px;
+
+
+    }
+
+    .intro-time {
+      border-radius: 34px;
+      background: black;
+
+      color: #ccc;
+      width: 55px;
+      text-align: center;
+      height: 20px;
+    }
+
+    /* The switch - the box around the slider */
+    .switch {
+      position: relative;
+      display: inline-block;
+      width: 60px;
+      opacity: 100%;
+      height: 25px;
+    }
+
+    /* Hide default HTML checkbox */
+    .switch input {
+      opacity: 0;
+      width: 0;
+      height: 0;
+    }
+
+    /* The slider */
+    .slider {
+      position: absolute;
+      cursor: pointer;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      background-color: #ccc;
+      -webkit-transition: 0.4s;
+      transition: 0.4s;
+    }
+
+    .slider:before {
+      position: absolute;
+      content: "";
+      height: 20px;
+      width: 20px;
+      left: 4px;
+      bottom: 3px;
+      background-image: url("/images/shahid.webp");
+      background-size: contain;
+      background-position: center;
+      -webkit-transition: 0.4s;
+      transition: 0.4s;
+    }
+
+    input:checked+.slider {
+      background-color: black;
+    }
+
+    input:focus+.slider {
+      box-shadow: 0 0 1px #2196f3;
+    }
+
+    input:checked+.slider:before {
+      -webkit-transform: translateX(26px);
+      -ms-transform: translateX(26px);
+      transform: translateX(26px);
+      object-fit: cover;
+      background-size: contain;
+      background-position: center;
+
+      background-image: url("/images/youtube-icon.png");
+    }
+
+    /* Rounded sliders */
+    .slider.round {
+      border-radius: 34px;
+    }
+
+    .slider.round:before {
+      border-radius: 50%;
+    }
+  </style>
+</head>
+
+<body>
+  <div class="header">
+    <div class="text">I've got this for you.</div>
+
+    <label class="switch">
+      <input class="checkStatus" title="checkbox" type="checkbox" />
+      <span class="slider round"></span>
+    </label>
+  </div>
+
+  <div class="youtube-input">
+
+    <label class="text">estimated intro time</label>
+    <input type="number" title="intro-time" name="intro-time" class='intro-time'></input>
+    <button class="skipper">skip intro</button>
+  </div>
+  <script src="./popup_script.js"></script>
+</body>
+
+</html>
